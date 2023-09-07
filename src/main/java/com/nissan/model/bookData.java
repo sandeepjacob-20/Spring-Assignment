@@ -3,7 +3,6 @@ package com.nissan.model;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-//@Component("bookdata")
 @Scope("prototype")
 @Component("bookdata")
 public class bookData {

@@ -15,8 +15,10 @@ public class question2 {
 		// TODO Auto-generated method stub
 		Scanner scan = new Scanner(System.in);
 		int opt;
+		
 		ArrayList<bookData> lib = new ArrayList<bookData>();
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext2.xml");
+		books book = context.getBean("library",books.class);
 		do {
 			System.out.println("Choose an Option : ");
 			System.out.println("1-Add");
@@ -26,17 +28,14 @@ public class question2 {
 			System.out.print("option : ");
 			opt = scan.nextInt();
 			if(opt==1) {
-				books book = context.getBean("library",books.class);
 				bookData bookdata = context.getBean("bookdata",bookData.class);
 				book.add(lib,bookdata);
 			}
 			else if(opt==2) {
-				books book2 = context.getBean("library",books.class);
-				book2.getDetails(lib);
+				book.getDetails(lib);
 			}
 			else if(opt==3) {
-				books book3 = context.getBean("library",books.class);
-				book3.listBooks(lib);
+				book.listBooks(lib);
 			}
 		}while(opt!=4);
 		
